@@ -1,7 +1,12 @@
 [CmdletBinding()]
 param(
     [Parameter(Mandatory)]
-    [string]$OutputPath
+    [string]$OutputPath,
+
+    [ValidateSet('baseline', 'skill')]
+    [string]$Mode = 'baseline',
+
+    [string]$SkillPath
 )
 
 $ErrorActionPreference = 'Stop'
@@ -27,7 +32,31 @@ foreach ($task in $manifest.tasks) {
     Copy-Item -LiteralPath (Join-Path $sourceRoot 'starter\src\answer.cj') -Destination (Join-Path $taskOutput 'answer.cj')
 }
 
-$instructions = @'
+if ($Mode -eq 'skill' -and [string]::IsNullOrWhiteSpace($SkillPath)) {
+    throw 'Skill 模式必须提供 -SkillPath。'
+}
+
+if ($Mode -eq 'skill') {
+    $resolvedSkill = (Resolve-Path -LiteralPath $SkillPath).Path
+    $instructions = @'
+# 仓颉 Skill 验证考试
+
+这个目录只包含题目和待填写的 `answer.cj`，不包含测试或标准答案。
+
+考试规则：
+
+1. 必须先完整阅读并使用 Skill：`__SKILL_PATH__\SKILL.md`；
+2. 可以按 Skill 的路由阅读其 `references`，但不访问原项目仓库、标准答案或测试文件；
+3. 不联网搜索答案；
+4. 阅读每个题目的 `prompt.md`，只修改同目录的 `answer.cj`；
+5. 不改变已有 `package` 声明、函数名称、参数和返回类型；
+6. 完成目录中的全部题目后停止，不自行判分；
+7. 最后说明实际读取了哪些 Skill 文件。
+'@
+    $instructions = $instructions.Replace('__SKILL_PATH__', $resolvedSkill)
+}
+else {
+    $instructions = @'
 # 仓颉学习前考试
 
 这个目录只包含题目和待填写的 `answer.cj`，不包含测试或标准答案。
@@ -41,6 +70,7 @@ $instructions = @'
 5. 不改变已有 `package` 声明、函数名称、参数和返回类型；
 6. 完成目录中的全部题目后停止，不自行判分。
 '@
+}
 Set-Content -LiteralPath (Join-Path $examRoot 'README.md') -Value $instructions -Encoding utf8
 
 Write-Output $examRoot

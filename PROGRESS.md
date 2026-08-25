@@ -5,8 +5,8 @@
 ```text
 [完成] 1/6 准备仓颉开发环境
 [完成] 2/6 建立学习前 Benchmark
-[进行] 3/6 制作仓颉学习 Skill
-[等待] 4/6 建立 Docker 统一环境
+[完成] 3/6 制作仓颉学习 Skill
+[进行] 4/6 建立 Docker 统一环境
 [等待] 5/6 制作编译诊断 Skill
 [等待] 6/6 用机器学习代码验收
 ```
@@ -21,12 +21,14 @@
 - 独立 Codex 无 Skill 基线考试：10/10。
 - Benchmark v0.2 无 Skill 基线：30/30；
 - Benchmark v0.3 Tensor 综合基线：45/45。
+- Cangjie Developer Skill v0.1 已创建、校验并安装到本机 Codex；
+- 使用 Skill 的独立隔离复测：45/45，11 道隐藏测试全部通过。
 
 ## 当前正在做
 
-- 制作 Cangjie Developer Skill v0.1；
-- 将官方文档检索、编译、测试和错误修复固化为稳定工作流。
+- 建立可复现的 Docker/Linux 仓颉 1.1.3 环境；
+- 验证同一示例在 Windows 与 Linux 两套工具链中通过。
 
 ## 下一验收点
 
-安装并使用 Skill 完成同卷复测，同时比较完成过程、编译尝试次数和错误诊断质量。
+Docker 镜像完成构建并执行 `cjpm build`、`cjpm test`；如果本机没有 Docker，则先完成仓库配置并继续不依赖 Docker 的工作。

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cangjie Developer"
+  short_description: "Develop and verify Cangjie 1.1.3 projects reliably"
+  default_prompt: "Use $cangjie-developer to implement and verify this Cangjie task."

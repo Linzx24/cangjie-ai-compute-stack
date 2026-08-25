@@ -71,6 +71,16 @@ Windows 开发环境请先阅读 [docs/setup-cangjie-1.1.3-windows.md](docs/setu
 
 项目当前做到哪里，请查看 [PROGRESS.md](PROGRESS.md)。仓颉能力评测位于 [ai-tooling/benchmark](ai-tooling/benchmark)。
 
+## Codex Skill
+
+仓颉开发 Skill 位于 [ai-tooling/skills/cangjie-developer](ai-tooling/skills/cangjie-developer)。将该目录复制到 Codex 的 `skills` 目录后，可在新任务中使用：
+
+```text
+使用 $cangjie-developer 实现并验证这个仓颉任务。
+```
+
+Skill 会引导 Codex 使用真实的 `cjc` / `cjpm` 编译测试，并按需读取仓颉语法、工程测试或 AI 张量实现资料。Benchmark v0.3 的隔离复测为 45/45；详细结果见 [Skill 复测报告](ai-tooling/benchmark/results/skill-v0.3-2026-08-26.md)。
+
 ## 开发原则
 
 - 官方文档负责说明，真实编译器负责裁决；
