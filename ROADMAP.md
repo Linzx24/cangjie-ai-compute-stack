@@ -21,11 +21,11 @@
 
 ## Phase 2 — CjTensor 最小原型
 
-- [ ] Tensor 数据与 shape
-- [ ] add、mul、sum、matmul
-- [ ] 最小动态计算图
-- [ ] `y = x * x + x` 自动微分验证
-- [ ] 数值梯度检查
+- [x] Tensor 数据与 shape
+- [x] add、mul、sum、matmul
+- [x] 最小动态计算图
+- [x] `y = x * x + x` 自动微分验证
+- [x] 数值梯度检查
 
 ## Phase 3 — 神经网络闭环
 

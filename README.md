@@ -71,6 +71,8 @@ Windows 开发环境请先阅读 [docs/setup-cangjie-1.1.3-windows.md](docs/setu
 
 项目当前做到哪里，请查看 [PROGRESS.md](PROGRESS.md)。仓颉能力评测位于 [ai-tooling/benchmark](ai-tooling/benchmark)。
 
+CjTensor v0.1 已通过仓颉 1.1.3 构建和 8/8 单元测试，包括 Tensor 基础计算、自动微分、数值梯度检查和线性回归训练。证据见 [技术验收报告](docs/cjtensor-v0.1-validation.md)。
+
 ## Codex Skill
 
 仓颉开发 Skill 位于 [ai-tooling/skills/cangjie-developer](ai-tooling/skills/cangjie-developer)。将该目录复制到 Codex 的 `skills` 目录后，可在新任务中使用：
