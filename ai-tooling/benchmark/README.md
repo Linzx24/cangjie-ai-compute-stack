@@ -26,12 +26,19 @@ v0.1 有 5 道公开开发题，共 10 分：
 
 标准答案应得到 10/10。这只能证明题目和判分器工作正常，不是 Codex 的基线成绩。
 
+首次无 Skill 基线结果见 [results/baseline-2026-08-26.md](results/baseline-2026-08-26.md)。v0.1 得到满分，因此下一版必须增加更难、更接近真实开发的题目。
+
 ## 进行无 Skill 基线测试
 
-1. 新建一个没有加载仓颉 Skill 的 Codex 任务；
-2. 让它逐题阅读 `tasks/<题号>/prompt.md`；
-3. 将答案保存为 `<提交目录>/<题号>/answer.cj`；
-4. 执行：
+1. 生成不包含测试和答案的隔离考试目录：
+
+   ```powershell
+   .\ai-tooling\benchmark\prepare-exam.ps1 -OutputPath <考试目录>
+   ```
+
+2. 新建一个没有加载仓颉 Skill 的 Codex 任务，并发送 [BASELINE_TASK_PROMPT.md](BASELINE_TASK_PROMPT.md) 中的提示词；
+3. 将隔离考试目录的绝对路径一并告诉它；
+4. 等它完成后执行：
 
    ```powershell
    .\ai-tooling\benchmark\run-benchmark.ps1 `
