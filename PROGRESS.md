@@ -23,11 +23,13 @@
 - Benchmark v0.3 Tensor 综合基线：45/45。
 - Cangjie Developer Skill v0.1 已创建、校验并安装到本机 Codex；
 - 使用 Skill 的独立隔离复测：45/45，11 道隐藏测试全部通过。
+- Dockerfile、一键验证脚本和 Linux SDK 放置说明已完成；
+- Docker 脚本语法和缺失环境诊断已验证。
 
 ## 当前正在做
 
-- 建立可复现的 Docker/Linux 仓颉 1.1.3 环境；
-- 验证同一示例在 Windows 与 Linux 两套工具链中通过。
+- 当前电脑尚未安装 Docker，Linux 运行验证等待后补；
+- 在等待 Docker 的同时制作 Cangjie Doctor 编译诊断工具。
 
 ## 下一验收点
 
