@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cangjie Doctor"
+  short_description: "Diagnose Cangjie builds and tests with evidence"
+  default_prompt: "Use $cangjie-doctor to diagnose this Cangjie project and explain the first actionable fix."

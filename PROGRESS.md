@@ -7,8 +7,8 @@
 [完成] 2/6 建立学习前 Benchmark
 [完成] 3/6 制作仓颉学习 Skill
 [进行] 4/6 建立 Docker 统一环境
-[等待] 5/6 制作编译诊断 Skill
-[等待] 6/6 用机器学习代码验收
+[完成] 5/6 制作编译诊断 Skill
+[进行] 6/6 用机器学习代码验收
 ```
 
 ## 已完成
@@ -25,12 +25,14 @@
 - 使用 Skill 的独立隔离复测：45/45，11 道隐藏测试全部通过。
 - Dockerfile、一键验证脚本和 Linux SDK 放置说明已完成；
 - Docker 脚本语法和缺失环境诊断已验证。
+- Cangjie Doctor v0.1 已创建、安装并通过 Skill 格式校验；
+- Doctor 对故障项目正确报告类型错误，对正常项目报告构建和测试均健康。
 
 ## 当前正在做
 
 - 当前电脑尚未安装 Docker，Linux 运行验证等待后补；
-- 在等待 Docker 的同时制作 Cangjie Doctor 编译诊断工具。
+- 开始实现 CjTensor 最小机器学习原型，作为仓颉能力最终验收。
 
 ## 下一验收点
 
-Docker 镜像完成构建并执行 `cjpm build`、`cjpm test`；如果本机没有 Docker，则先完成仓库配置并继续不依赖 Docker 的工作。
+Tensor 数据、shape、基础算子和矩阵乘通过真实仓颉单元测试。

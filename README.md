@@ -81,6 +81,12 @@ Windows 开发环境请先阅读 [docs/setup-cangjie-1.1.3-windows.md](docs/setu
 
 Skill 会引导 Codex 使用真实的 `cjc` / `cjpm` 编译测试，并按需读取仓颉语法、工程测试或 AI 张量实现资料。Benchmark v0.3 的隔离复测为 45/45；详细结果见 [Skill 复测报告](ai-tooling/benchmark/results/skill-v0.3-2026-08-26.md)。
 
+编译、测试或环境出错时，可使用 [Cangjie Doctor](ai-tooling/skills/cangjie-doctor)：
+
+```text
+使用 $cangjie-doctor 诊断这个仓颉项目，先不要修改代码。
+```
+
 ## 开发原则
 
 - 官方文档负责说明，真实编译器负责裁决；
