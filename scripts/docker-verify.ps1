@@ -17,18 +17,29 @@ if ($actualSdkSha256 -ne $ExpectedSdkSha256.ToLowerInvariant()) {
     throw "Linux SDK SHA-256 不匹配。期望：$ExpectedSdkSha256，实际：$actualSdkSha256。"
 }
 Write-Output "Linux SDK 校验通过：$actualSdkSha256"
-if (-not (Get-Command docker -ErrorAction SilentlyContinue)) {
+$dockerCommand = Get-Command docker -ErrorAction SilentlyContinue
+if ($dockerCommand) {
+    $dockerExecutable = $dockerCommand.Source
+}
+else {
+    $perUserDocker = Join-Path $env:LOCALAPPDATA 'Programs\DockerDesktop\resources\bin\docker.exe'
+    if (Test-Path -LiteralPath $perUserDocker -PathType Leaf) {
+        $dockerExecutable = $perUserDocker
+    }
+}
+if ([string]::IsNullOrWhiteSpace($dockerExecutable)) {
     throw '未找到 Docker。请先安装并启动 Docker Desktop，然后重新运行此脚本。'
 }
+Write-Output "Docker CLI：$dockerExecutable"
 
 Push-Location $repoRoot
 try {
-    docker build --file docker/Dockerfile --tag $ImageName .
+    & $dockerExecutable build --file docker/Dockerfile --tag $ImageName .
     if ($LASTEXITCODE -ne 0) {
         throw "docker build 失败，退出码：$LASTEXITCODE"
     }
 
-    docker run --rm --volume "${repoRoot}:/workspace" $ImageName bash /workspace/docker/verify.sh
+    & $dockerExecutable run --rm --volume "${repoRoot}:/workspace" $ImageName bash /workspace/docker/verify.sh
     if ($LASTEXITCODE -ne 0) {
         throw "Docker/Linux 验证失败，退出码：$LASTEXITCODE"
     }

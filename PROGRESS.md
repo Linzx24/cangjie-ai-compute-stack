@@ -27,6 +27,8 @@
 - Docker 脚本语法和缺失环境诊断已验证。
 - 官方 Cangjie 1.1.3 Linux x64 SDK 已自动下载到 Git 忽略目录，SHA-256 校验通过；
 - SDK 自动下载与强制哈希校验脚本已完成。
+- Docker Desktop 4.87.0 已安装，Docker CLI 29.7.2 可用；
+- WSL 2.7.12 已安装，CPU 固件虚拟化与 SLAT 均已启用。
 - Cangjie Doctor v0.1 已创建、安装并通过 Skill 格式校验；
 - Doctor 对故障项目正确报告类型错误，对正常项目报告构建和测试均健康。
 - CjTensor v0.1 已实现二维 Tensor、基础算子和矩阵乘；
@@ -35,9 +37,9 @@
 
 ## 当前正在做
 
-- 当前电脑尚未安装 Docker Desktop/WSL，Linux 运行验证等待系统安装授权；
+- Windows“虚拟机平台”已启用，系统要求重启后才能启动 WSL 2/Docker 引擎；
 - 其余五步均已完成；当前只等待 Docker/Linux 运行验证。
 
 ## 下一验收点
 
-安装并启动 Docker Desktop；Linux SDK 已准备好，安装完成后可直接运行一键 Linux 验证。
+重启 Windows，启动 Docker Desktop，然后直接运行一键 Linux 验证。
