@@ -10,13 +10,21 @@
 cangjie-sdk-linux-x64-1.1.3.tar.gz
 ```
 
-把文件放到：
+可以在仓库根目录自动下载并校验：
+
+```powershell
+.\scripts\download-cangjie-linux-sdk.ps1
+```
+
+也可以手动把文件放到：
 
 ```text
 docker/sdk/cangjie-sdk-linux-x64-1.1.3.tar.gz
 ```
 
 该路径已加入 `.gitignore`，不会误传到 GitHub。
+
+下载脚本和 Docker 验证脚本都会校验 SHA-256，校验失败的文件不会用于构建。
 
 ## 一键验证
 

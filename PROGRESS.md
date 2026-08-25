@@ -25,6 +25,8 @@
 - 使用 Skill 的独立隔离复测：45/45，11 道隐藏测试全部通过。
 - Dockerfile、一键验证脚本和 Linux SDK 放置说明已完成；
 - Docker 脚本语法和缺失环境诊断已验证。
+- 官方 Cangjie 1.1.3 Linux x64 SDK 已自动下载到 Git 忽略目录，SHA-256 校验通过；
+- SDK 自动下载与强制哈希校验脚本已完成。
 - Cangjie Doctor v0.1 已创建、安装并通过 Skill 格式校验；
 - Doctor 对故障项目正确报告类型错误，对正常项目报告构建和测试均健康。
 - CjTensor v0.1 已实现二维 Tensor、基础算子和矩阵乘；
@@ -33,9 +35,9 @@
 
 ## 当前正在做
 
-- 当前电脑尚未安装 Docker，Linux 运行验证等待后补；
+- 当前电脑尚未安装 Docker Desktop/WSL，Linux 运行验证等待系统安装授权；
 - 其余五步均已完成；当前只等待 Docker/Linux 运行验证。
 
 ## 下一验收点
 
-安装并启动 Docker Desktop，并把官方 `cangjie-sdk-linux-x64-1.1.3.tar.gz` 放入 `docker/sdk/`，随后运行一键 Linux 验证。
+安装并启动 Docker Desktop；Linux SDK 已准备好，安装完成后可直接运行一键 Linux 验证。
