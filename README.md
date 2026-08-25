@@ -59,6 +59,16 @@ ROADMAP.md               # 项目阶段计划
 4. 合并正式项目计划；
 5. 进入框架主体开发。
 
+## 立即开始
+
+Windows 开发环境请先阅读 [docs/setup-cangjie-1.1.3-windows.md](docs/setup-cangjie-1.1.3-windows.md)，然后运行：
+
+```powershell
+.\scripts\check-cangjie.ps1 -RunSmokeTest
+```
+
+该命令会检查仓颉版本，并编译、运行、测试仓库中的第一个仓颉小项目。
+
 ## 开发原则
 
 - 官方文档负责说明，真实编译器负责裁决；
