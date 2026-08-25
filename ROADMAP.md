@@ -3,14 +3,14 @@
 ## Phase 0 — 立项与环境
 
 - [ ] 确定项目正式名称和对外介绍
-- [ ] 固定 STS Cangjie 1.1.3 环境
-- [ ] 验证 `cjc`、`cjpm`、构建和测试命令
+- [x] 固定 STS Cangjie 1.1.3 环境
+- [x] 验证 `cjc`、`cjpm`、构建和测试命令
 - [ ] 完成比赛规则与现有项目查重
 - [ ] 确定两人分工和每周验收标准
 
 ## Phase 1 — 仓颉开发能力
 
-- [ ] 建立仓颉可编译示例集
+- [x] 建立第一个仓颉可编译示例
 - [ ] 建立无 Skill 基线 Benchmark
 - [ ] 发布 Cangjie Developer Skill v0.1
 - [ ] 建立 Cangjie Doctor 初版

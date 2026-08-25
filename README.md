@@ -69,6 +69,8 @@ Windows 开发环境请先阅读 [docs/setup-cangjie-1.1.3-windows.md](docs/setu
 
 该命令会检查仓颉版本，并编译、运行、测试仓库中的第一个仓颉小项目。
 
+项目当前做到哪里，请查看 [PROGRESS.md](PROGRESS.md)。仓颉能力评测位于 [ai-tooling/benchmark](ai-tooling/benchmark)。
+
 ## 开发原则
 
 - 官方文档负责说明，真实编译器负责裁决；
