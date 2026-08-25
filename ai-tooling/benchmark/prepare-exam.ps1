@@ -39,7 +39,7 @@ $instructions = @'
 3. 不联网搜索答案；
 4. 阅读每个题目的 `prompt.md`，只修改同目录的 `answer.cj`；
 5. 不改变已有 `package` 声明、函数名称、参数和返回类型；
-6. 完成全部 5 道题后停止，不自行判分。
+6. 完成目录中的全部题目后停止，不自行判分。
 '@
 Set-Content -LiteralPath (Join-Path $examRoot 'README.md') -Value $instructions -Encoding utf8
 

@@ -1,12 +1,18 @@
 {
-  "version": "0.1.0",
+  "version": "0.3.0",
   "cangjie_version": "1.1.3",
-  "total_points": 10,
+  "total_points": 45,
   "tasks": [
     { "id": "01-add", "category": "basic", "points": 1 },
     { "id": "02-clamp", "category": "control-flow", "points": 2 },
     { "id": "03-sum-array", "category": "collections", "points": 2 },
     { "id": "04-factorial", "category": "functions", "points": 2 },
-    { "id": "05-dot-product", "category": "ml-foundation", "points": 3 }
+    { "id": "05-dot-product", "category": "ml-foundation", "points": 3 },
+    { "id": "06-safe-divide", "category": "option", "points": 3 },
+    { "id": "07-relu-array", "category": "tensor-op", "points": 4 },
+    { "id": "08-matrix-vector", "category": "tensor-op", "points": 5 },
+    { "id": "09-generic-swap", "category": "generic", "points": 3 },
+    { "id": "10-mut-struct", "category": "compile-fix", "points": 5 },
+    { "id": "11-tensor-2d", "category": "ml-capstone", "points": 15 }
   ]
 }

@@ -1,4 +1,4 @@
-# Cangjie Benchmark v0.1
+# Cangjie Benchmark v0.3
 
 这是一套用于比较 Codex 使用仓颉 Skill 前后能力变化的小型测试。
 
@@ -6,7 +6,7 @@
 
 每道题要求提交一个 `answer.cj`。判分器把答案与隐藏在题目目录中的单元测试放进临时项目，然后运行真实的 `cjpm test`。代码不能编译或测试失败，都不得分。
 
-v0.1 有 5 道公开开发题，共 10 分：
+v0.3 保留基础题和仓颉特性题，并增加一个完整二维 Tensor 综合题，共 45 分：
 
 | 题目 | 内容 | 分值 |
 | --- | --- | ---: |
@@ -15,6 +15,12 @@ v0.1 有 5 道公开开发题，共 10 分：
 | 03-sum-array | 数组与循环 | 2 |
 | 04-factorial | 递归和边界 | 2 |
 | 05-dot-product | 机器学习常用点积 | 3 |
+| 06-safe-divide | Option 错误处理 | 3 |
+| 07-relu-array | 数组构造与 ReLU | 4 |
+| 08-matrix-vector | 矩阵向量乘法 | 5 |
+| 09-generic-swap | 泛型与元组 | 3 |
+| 10-mut-struct | 修复可变结构体 | 5 |
+| 11-tensor-2d | 二维 Tensor 综合实现 | 15 |
 
 ## 验证判分器
 
@@ -24,9 +30,15 @@ v0.1 有 5 道公开开发题，共 10 分：
 .\ai-tooling\benchmark\run-benchmark.ps1 -Mode Reference
 ```
 
-标准答案应得到 10/10。这只能证明题目和判分器工作正常，不是 Codex 的基线成绩。
+标准答案应得到 45/45。这只能证明题目和判分器工作正常，不是 Codex 的基线成绩。
 
-首次无 Skill 基线结果见 [results/baseline-2026-08-26.md](results/baseline-2026-08-26.md)。v0.1 得到满分，因此下一版必须增加更难、更接近真实开发的题目。
+无 Skill 基线结果：
+
+- [v0.1：10/10](results/baseline-2026-08-26.md)
+- [v0.2：30/30](results/baseline-v0.2-2026-08-26.md)
+- [v0.3：45/45](results/baseline-v0.3-2026-08-26.md)
+
+当前 Codex 在隔离、无 Skill、无联网条件下仍通过了 Tensor 综合题。因此 Skill 后评测除通过率外，还必须记录开发流程、编译尝试次数和诊断质量，避免制造虚假的分数提升。
 
 ## 进行无 Skill 基线测试
 

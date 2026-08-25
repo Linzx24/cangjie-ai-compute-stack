@@ -12,7 +12,7 @@
 
 - [x] 建立第一个仓颉可编译示例
 - [x] 建立无 Skill 基线 Benchmark v0.1
-- [ ] 扩展 Benchmark v0.2，增加项目、测试、诊断和张量题
+- [x] 扩展 Benchmark v0.3，增加 Option、泛型、诊断和 Tensor 综合题
 - [ ] 发布 Cangjie Developer Skill v0.1
 - [ ] 建立 Cangjie Doctor 初版
 - [ ] 对比使用 Skill 前后的成绩
