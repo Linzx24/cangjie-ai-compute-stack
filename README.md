@@ -1,58 +1,71 @@
-# Cangjie Codex Skill
+# Cangjie AI Compute Stack
 
-面向仓颉编程语言的 Codex 开发能力、编译诊断工作流与可重复 Benchmark。
+面向仓颉编程语言的轻量级原生 AI 计算栈。
 
-## 项目目标
+本项目计划使用仓颉实现张量计算、自动微分、基础神经网络和可扩展计算后端，并提供配套的 Codex 仓颉开发 Skill、编译诊断工具及可重复 Benchmark。
 
-本项目用于解决三个问题：
-
-1. 让 Codex 基于仓颉官方文档和真实编译结果学习仓颉 1.1.3。
-2. 建立可重复运行的 Benchmark，衡量使用 Skill 前后的代码生成与修复能力。
-3. 沉淀可供其他开发者复用的仓颉开发与诊断 Skill。
-
-## 计划交付
+## 项目愿景
 
 ```text
-skills/
-├── cangjie-developer/   # 仓颉开发基础 Skill
-└── cangjie-doctor/      # 编译、测试与错误诊断 Skill
+仓颉应用开发者
+      │
+      ▼
+CjTensor：张量、自动微分、神经网络、优化器
+      │
+      ▼
+Backend：CPU，后续扩展 GPU / NPU
 
-benchmark/
-├── practice/            # 公开练习集
-├── development/         # Skill 调试集
-├── holdout/             # 独立测试集
-├── runner/              # 自动编译和测试
-└── scoring/             # 自动评分
-
-reports/                 # 无 Skill / 不同 Skill 版本的对比报告
+开发基础设施
+├── Cangjie Developer Skill
+├── Cangjie Doctor
+└── Cangjie Benchmark
 ```
 
-## 第一阶段
+## 比赛版本目标
 
-- 固定 STS Cangjie 1.1.3 开发环境。
-- 建立 10 个最小可编译示例。
-- 建立 10 道初始 Benchmark。
-- 记录无 Skill 的基线成绩。
-- 发布 `cangjie-developer` v0.1。
-- 比较使用 Skill 前后的编译成功率、测试通过率和修复成功率。
+比赛阶段不追求完整重写 PyTorch，而是交付一个小而完整、可以真实运行和验证的版本：
 
-## 与 CjTensor 的关系
+- 仓颉原生 Tensor 数据结构；
+- 加减乘除、矩阵乘、求和等基础算子；
+- 动态计算图和自动微分；
+- Linear、ReLU、Sequential 等基础神经网络组件；
+- SGD 优化器；
+- XOR 与 MNIST 训练示例；
+- 单元测试、梯度检查和性能基准；
+- Codex 仓颉开发与编译诊断 Skill。
 
-本仓库不是机器学习框架本身，而是 CjTensor 项目的开发基础设施：
+## 仓库规划
 
 ```text
-Cangjie Developer Skill
-        ↓
-Cangjie Benchmark
-        ↓
-Cangjie Doctor
-        ↓
-CjTensor 机器学习框架
+framework/              # CjTensor 机器学习框架主体
+examples/               # XOR、MNIST 等完整演示
+ai-tooling/              # Skill、Benchmark 和诊断工具
+docs/                   # 架构、比赛材料和开发文档
+ROADMAP.md               # 项目阶段计划
 ```
 
-## 当前状态
+## 两位成员当前分工
 
-项目初始化中。所有仓颉代码必须以官方文档为依据，并通过真实的 `cjc` / `cjpm` 编译和测试后才能计为有效样例。
+- 项目计划：需求范围、开发排期、演示与比赛材料规划。
+- 仓颉 AI 开发能力：仓颉学习、Skill、Benchmark、编译诊断及验证环境。
+
+具体代码模块将在计划确认后进一步分配，所有成果统一进入本仓库。
+
+## 当前阶段
+
+1. 固定 STS Cangjie 1.1.3 开发环境；
+2. 建立仓颉可编译示例和能力 Benchmark；
+3. 完成 CjTensor 技术验证；
+4. 合并正式项目计划；
+5. 进入框架主体开发。
+
+## 开发原则
+
+- 官方文档负责说明，真实编译器负责裁决；
+- 未通过 `cjc` / `cjpm` 编译和测试的代码，不标记为已完成；
+- 先完成稳定的 CPU 版本，再考虑 GPU 或 NPU；
+- 所有重要功能必须配套测试和可复现实验；
+- AI 生成内容必须经过人工审查和真实环境验证。
 
 ## 许可证
 
