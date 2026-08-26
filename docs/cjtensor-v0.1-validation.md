@@ -1,7 +1,7 @@
 # CjTensor v0.1 技术验收
 
 日期：2026-08-26  
-环境：Cangjie 1.1.3，CJNative，Windows x86_64 MinGW
+环境：Cangjie 1.1.3，CJNative；Windows x86_64 MinGW 与 Docker/Linux x86_64
 
 ## 验收结论
 
@@ -34,6 +34,13 @@ cjpm test success
 
 Cangjie Doctor 复核结果：SDK、Build、Tests 全部通过，结论为“健康”。
 
+Docker/Linux 复核结果：官方 Linux x64 SDK 的 SHA-256 校验通过，容器内编译器目标为
+`x86_64-unknown-linux-gnu`；hello 示例 1/1、CjTensor 8/8 测试全部通过。运行命令：
+
+```powershell
+.\scripts\docker-verify.ps1
+```
+
 ## 测试覆盖
 
 - Tensor 输入复制与行优先索引；
@@ -51,6 +58,6 @@ Cangjie Doctor 复核结果：SDK、Build、Tests 全部通过，结论为“健
 - 自动微分当前以标量 `Value` 验证机制，尚未连接 Tensor 算子；
 - 当前反向传播按路径递归，后续需要拓扑排序以支持更大的通用计算图；
 - 3 条编译 warning 来自 `@AssertThrows` 的单元测试宏展开，测试仍全部通过；
-- Docker/Linux 运行验证等待本机安装 Docker 和准备官方 Linux SDK。
+- 当前 Docker 镜像面向 Linux x86_64；ARM64 和其他 Linux 发行版尚未验证。
 
 因此，这一版本应描述为“仓颉原生 AI 计算栈的可运行技术原型”，而不是“仓颉版 PyTorch 已完成”。

@@ -73,6 +73,14 @@ Windows 开发环境请先阅读 [docs/setup-cangjie-1.1.3-windows.md](docs/setu
 
 CjTensor v0.1 已通过仓颉 1.1.3 构建和 8/8 单元测试，包括 Tensor 基础计算、自动微分、数值梯度检查和线性回归训练。证据见 [技术验收报告](docs/cjtensor-v0.1-validation.md)。
 
+准备好官方 Cangjie 1.1.3 Linux x64 SDK 与 Docker Desktop 后，可执行跨平台一键验收：
+
+```powershell
+.\scripts\docker-verify.ps1
+```
+
+该脚本会校验 SDK 哈希、构建 Linux 镜像，并测试 hello 示例和 CjTensor。实测结果见 [Docker/Linux 验证记录](docs/docker-linux-validation.md)。
+
 ## Codex Skill
 
 仓颉开发 Skill 位于 [ai-tooling/skills/cangjie-developer](ai-tooling/skills/cangjie-developer)。将该目录复制到 Codex 的 `skills` 目录后，可在新任务中使用：

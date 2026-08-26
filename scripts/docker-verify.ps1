@@ -39,9 +39,15 @@ try {
         throw "docker build 失败，退出码：$LASTEXITCODE"
     }
 
-    & $dockerExecutable run --rm --volume "${repoRoot}:/workspace" $ImageName bash /workspace/docker/verify.sh
-    if ($LASTEXITCODE -ne 0) {
-        throw "Docker/Linux 验证失败，退出码：$LASTEXITCODE"
+    $projects = @(
+        '/workspace/examples/hello-cangjie',
+        '/workspace/framework'
+    )
+    foreach ($project in $projects) {
+        & $dockerExecutable run --rm --volume "${repoRoot}:/workspace" $ImageName bash /workspace/docker/verify.sh $project
+        if ($LASTEXITCODE -ne 0) {
+            throw "Docker/Linux 验证失败（${project}），退出码：$LASTEXITCODE"
+        }
     }
 }
 finally {

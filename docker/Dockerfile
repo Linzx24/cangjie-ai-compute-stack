@@ -23,7 +23,8 @@ RUN apt-get update \
 
 COPY --from=sdk /opt/cangjie-sdk/cangjie /opt/cangjie
 COPY docker/entrypoint.sh /usr/local/bin/cangjie-entrypoint
-RUN chmod +x /usr/local/bin/cangjie-entrypoint
+RUN sed -i 's/\r$//' /usr/local/bin/cangjie-entrypoint \
+    && chmod +x /usr/local/bin/cangjie-entrypoint
 
 ENV CANGJIE_HOME=/opt/cangjie
 WORKDIR /workspace

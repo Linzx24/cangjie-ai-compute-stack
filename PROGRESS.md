@@ -6,7 +6,7 @@
 [完成] 1/6 准备仓颉开发环境
 [完成] 2/6 建立学习前 Benchmark
 [完成] 3/6 制作仓颉学习 Skill
-[进行] 4/6 建立 Docker 统一环境
+[完成] 4/6 建立 Docker 统一环境
 [完成] 5/6 制作编译诊断 Skill
 [完成] 6/6 用机器学习代码验收
 ```
@@ -29,6 +29,9 @@
 - SDK 自动下载与强制哈希校验脚本已完成。
 - Docker Desktop 4.87.0 已安装，Docker CLI 29.7.2 可用；
 - WSL 2.7.12 已安装，CPU 固件虚拟化与 SLAT 均已启用。
+- Docker Desktop 重启后引擎正常，成功构建 `cangjie-ai-stack-dev:1.1.3`；
+- Linux x86_64 容器内 `cjc`、`cjpm` 均为 1.1.3；
+- Linux 容器内 hello 示例 1/1、CjTensor 8/8 测试全部通过。
 - Cangjie Doctor v0.1 已创建、安装并通过 Skill 格式校验；
 - Doctor 对故障项目正确报告类型错误，对正常项目报告构建和测试均健康。
 - CjTensor v0.1 已实现二维 Tensor、基础算子和矩阵乘；
@@ -37,9 +40,9 @@
 
 ## 当前正在做
 
-- Windows“虚拟机平台”已启用，系统要求重启后才能启动 WSL 2/Docker 引擎；
-- 其余五步均已完成；当前只等待 Docker/Linux 运行验证。
+- 六步“让 Codex 学会仓颉并用机器学习代码验收”的技术路线已经完成；
+- 下一阶段由团队共同推进正式项目设计和神经网络闭环。
 
 ## 下一验收点
 
-重启 Windows，启动 Docker Desktop，然后直接运行一键 Linux 验证。
+实现 `Module`、`Parameter`、`Linear`、损失函数与 SGD，并以 XOR 训练作为下一次演示验收。

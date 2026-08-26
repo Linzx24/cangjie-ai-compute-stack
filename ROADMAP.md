@@ -7,7 +7,7 @@
 - [x] 验证 `cjc`、`cjpm`、构建和测试命令
 - [x] 提交 Docker/Linux 可复现环境配置
 - [x] 安装 Docker Desktop 与 WSL 2
-- [ ] 在安装 Docker 后完成 Linux 运行验证
+- [x] 在安装 Docker 后完成 Linux 运行验证
 - [ ] 完成比赛规则与现有项目查重
 - [ ] 确定两人分工和每周验收标准
 
