@@ -55,7 +55,7 @@ ROADMAP.md               # 项目阶段计划
 
 1. 固定 STS Cangjie 1.1.3 开发环境；
 2. 建立仓颉可编译示例和能力 Benchmark；
-3. 完成 CjTensor 技术验证；
+3. 完成仓颉开发 Skill 与编译诊断 Skill 的验证；
 4. 合并正式项目计划；
 5. 进入框架主体开发。
 
@@ -71,15 +71,13 @@ Windows 开发环境请先阅读 [docs/setup-cangjie-1.1.3-windows.md](docs/setu
 
 项目当前做到哪里，请查看 [PROGRESS.md](PROGRESS.md)。仓颉能力评测位于 [ai-tooling/benchmark](ai-tooling/benchmark)。
 
-CjTensor v0.1 已通过仓颉 1.1.3 构建和 8/8 单元测试，包括 Tensor 基础计算、自动微分、数值梯度检查和线性回归训练。证据见 [技术验收报告](docs/cjtensor-v0.1-validation.md)。
-
 准备好官方 Cangjie 1.1.3 Linux x64 SDK 与 Docker Desktop 后，可执行跨平台一键验收：
 
 ```powershell
 .\scripts\docker-verify.ps1
 ```
 
-该脚本会校验 SDK 哈希、构建 Linux 镜像，并测试 hello 示例和 CjTensor。实测结果见 [Docker/Linux 验证记录](docs/docker-linux-validation.md)。
+该脚本会校验 SDK 哈希、构建 Linux 镜像，并测试 hello 示例和仓颉语言能力验证套件。实测结果见 [Docker/Linux 验证记录](docs/docker-linux-validation.md)。
 
 ## Codex Skill
 
@@ -89,7 +87,10 @@ CjTensor v0.1 已通过仓颉 1.1.3 构建和 8/8 单元测试，包括 Tensor �
 使用 $cangjie-developer 实现并验证这个仓颉任务。
 ```
 
-Skill 会引导 Codex 使用真实的 `cjc` / `cjpm` 编译测试，并按需读取仓颉语法、工程测试或 AI 张量实现资料。Benchmark v0.3 的隔离复测为 45/45；详细结果见 [Skill 复测报告](ai-tooling/benchmark/results/skill-v0.3-2026-08-26.md)。
+Skill 会引导 Codex 使用真实的 `cjc` / `cjpm` 编译测试，并按需读取语言核心、抽象与集合、工程测试、并发与 C 互操作或 AI 数值实现资料。Benchmark v0.3 的隔离复测为 45/45；详细结果见 [Skill 复测报告](ai-tooling/benchmark/results/skill-v0.3-2026-08-26.md)。
+
+独立于正式框架的语言验证套件位于 [ai-tooling/validation](ai-tooling/validation)，用于确认 Skill 中的关键语法和工程判断能通过真实编译器。
+当前覆盖范围、验证证据和能力边界见 [仓颉 Skill 验收报告](docs/cangjie-skill-validation.md)。
 
 编译、测试或环境出错时，可使用 [Cangjie Doctor](ai-tooling/skills/cangjie-doctor)：
 

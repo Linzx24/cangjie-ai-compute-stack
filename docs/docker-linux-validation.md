@@ -4,8 +4,8 @@
 
 ## 结论
 
-仓颉开发环境和 CjTensor 已在 Docker 的 Linux x86_64 环境中完成真实编译与测试，
-不再只依赖开发者本机的 Windows 工具链。
+仓颉开发环境和 Skill 语言能力套件已在 Docker 的 Linux x86_64 环境中完成真实编译与测试，
+不再只依赖开发者本机的 Windows 工具链。本记录不代表正式机器学习框架已经实现。
 
 ## 环境与输入
 
@@ -26,7 +26,7 @@
 脚本会先强制核对 SDK 哈希，再构建镜像，随后分别执行：
 
 1. `/workspace/examples/hello-cangjie` 的 `cjpm build` 与 `cjpm test --no-color`；
-2. `/workspace/framework` 的 `cjpm build` 与 `cjpm test --no-color`。
+2. `/workspace/ai-tooling/validation/language-suite` 的 `cjpm build` 与 `cjpm test --no-color`。
 
 ## 实测结果
 
@@ -36,8 +36,8 @@ Target: x86_64-unknown-linux-gnu
 Cangjie Project Manager: 1.1.3
 
 hello-cangjie: TOTAL 1, PASSED 1, FAILED 0
-CjTensor:       TOTAL 8, PASSED 8, FAILED 0
+language-suite: TOTAL 5, PASSED 5, FAILED 0
 ```
 
-CjTensor 测试覆盖 Tensor 基础运算、矩阵乘、异常输入、标量自动微分、数值梯度检查
-和线性回归端到端训练。测试宏展开会产生 3 条 unreachable-block warning，未造成测试失败。
+语言套件覆盖 Lambda/函数类型、struct 可变性、class/interface、泛型、`Option`/`match`、
+数组、集合和异常处理。这些是 Skill 的编译器验证夹具，不是正式框架源码。

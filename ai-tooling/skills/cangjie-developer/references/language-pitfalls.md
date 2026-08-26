@@ -1,4 +1,4 @@
-# Cangjie 1.1.3 language notes
+# Cangjie 1.1.3 language-core notes
 
 Use these notes as a compact reminder, then let `cjc` decide disputed syntax.
 
@@ -20,6 +20,23 @@ func relu(values: Array<Float64>): Array<Float64> {
 ```
 
 The array contents are mutable even when the array reference is held by `let`; use `var` only when rebinding the variable itself.
+
+Array length and ordinary indices are `Int64` in the tested 1.1.3 APIs. Keep numeric types explicit when mixing `Int32`, `Int64`, `UInt64`, `Float32`, and `Float64`; if conversion syntax is uncertain, compile a tiny example rather than guessing.
+
+## Functions, Lambda, and closures
+
+- A function type is written like `(Int64, Int64) -> Int64`.
+- A Lambda uses `{parameters => body}`. Even a parameterless Lambda needs `=>`, except where trailing-Lambda syntax permits omission.
+- Lambda return types are inferred; do not write a return-type annotation inside the Lambda parameter list.
+
+```cangjie
+func applyTwice(value: Int64, operation: (Int64) -> Int64): Int64 {
+    return operation(operation(value))
+}
+
+let increment: (Int64) -> Int64 = {value => value + 1}
+let result = applyTwice(3, increment)
+```
 
 ## Struct and class mutation
 
@@ -44,7 +61,7 @@ counter.increment()
 
 Do not add `mut` to an ordinary class method merely because it changes a class field.
 
-## Option and generics
+## Option, enum, and pattern matching
 
 Use `Option<T>`, `Some(value)`, and `None`. The shorthand `?T` also denotes an optional value where supported by the surrounding declaration.
 
@@ -61,6 +78,23 @@ func swap<T, U>(pair: (T, U)): (U, T) {
 }
 ```
 
+Use `match` when the caller must handle every enum branch. Do not force an `Option` value without first proving it is `Some`.
+
+```cangjie
+func valueOr(option: Option<Int64>, fallback: Int64): Int64 {
+    match (option) {
+        case Some(value) => value
+        case None => fallback
+    }
+}
+```
+
+## Exceptions
+
+- Throw `Exception` subclasses for recoverable application failures; do not define application exceptions by inheriting from `Error`.
+- Prefer `Option` when absence is an expected result. Use an exception when the operation cannot fulfill its contract.
+- Catch the narrowest useful exception first. Preserve the original exception as the cause when translating it.
+
 ## Diagnostic order
 
 When many errors appear, start with the earliest parser or type error. Later messages are often consequences.
@@ -72,3 +106,8 @@ Common checks:
 3. Check `let` versus `var`, and `mut func` for struct mutation.
 4. Check integer types used for sizes and indices.
 5. Reduce uncertain syntax to a tiny `.cj` program and compile it before applying it broadly.
+
+## Official references
+
+- [Functions and Lambda](https://cj-docs.gitcode.com/zh/1.1.3/dev-guide/source_zh_cn/function/lambda.html)
+- [Exceptions](https://cj-docs.gitcode.com/zh/1.1.3/dev-guide/source_zh_cn/error_handle/exception_overview.html)

@@ -12,6 +12,8 @@ For the first two-dimensional Tensor, store:
 
 Copy caller-provided data during construction when Tensor ownership should be independent. Validate that `rows * cols` equals the data size and reject negative shapes.
 
+Before multiplying dimensions, consider integer overflow. Define empty-shape behavior deliberately instead of inheriting it from loop behavior.
+
 ## Operation contracts
 
 - `get` and `set`: validate row and column bounds.
@@ -40,3 +42,11 @@ This is intentionally simple and easy to test. Optimize only after a benchmark i
 5. Only then evaluate BLAS, SIMD, GPU, or NPU backends behind a stable interface.
 
 Keep public APIs small. A competition demo benefits more from a correct end-to-end training example and reproducible measurements than from many unfinished operators.
+
+## Numerical correctness rules
+
+- Use a documented tolerance for floating-point assertions; exact equality is appropriate only when the operation is known to be exact.
+- Compare automatic gradients with central finite differences on small deterministic inputs before trusting training output.
+- Accumulate gradients when a value contributes along multiple graph paths; reset gradients deliberately between optimization steps.
+- Keep dtype, shape, device/backend, ownership, and mutation behavior explicit at public boundaries.
+- Benchmark release builds after warm-up and report input shape, dtype, platform, compiler mode, and iteration count.

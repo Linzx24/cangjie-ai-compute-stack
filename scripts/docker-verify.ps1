@@ -41,7 +41,7 @@ try {
 
     $projects = @(
         '/workspace/examples/hello-cangjie',
-        '/workspace/framework'
+        '/workspace/ai-tooling/validation/language-suite'
     )
     foreach ($project in $projects) {
         & $dockerExecutable run --rm --volume "${repoRoot}:/workspace" $ImageName bash /workspace/docker/verify.sh $project
