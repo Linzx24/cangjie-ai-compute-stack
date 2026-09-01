@@ -41,6 +41,23 @@ class Scale <: Transform {
 - `HashSet<T>`: unique, unordered elements.
 - `HashMap<K, V>`: key-value lookup; do not rely on iteration order.
 
+`Array<T>` has fixed length: allocate it with `Array<T>(size, repeat: value)` and fill by index. It has no `add` or `append` operation.
+
+Do not assume `Array<T>(source)` is a copy constructor. For an independent copy, allocate the destination with the same size and copy elements in a loop.
+
+For `ArrayList<T>` in Cangjie 1.1.3, import `std.collection.*`, append an element with `add`, inspect the element count with `size`, and use subscripting for indexed access. Do not substitute a guessed API such as `append`.
+
+```cangjie
+import std.collection.*
+
+let values = ArrayList<Int64>()
+values.add(1)
+let first = values[0]
+let count = values.size
+```
+
+When an uncertain sorting overload would add risk to a small top-k or ordering task, prefer a simple explicit selection loop whose tie rule is visible and testable.
+
 Copy mutable collections at API boundaries when ownership must be independent. Document deliberate sharing instead of letting it happen accidentally.
 
 ## Visibility and API design

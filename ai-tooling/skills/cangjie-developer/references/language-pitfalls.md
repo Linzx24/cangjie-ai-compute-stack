@@ -8,6 +8,7 @@ Use these notes as a compact reminder, then let `cjc` decide disputed syntax.
 - A half-open range such as `0..size` visits `0` through `size - 1`.
 - Construct a filled array with `Array<T>(size, repeat: value)`.
 - Access tuple elements by numeric member, for example `pair[0]` and `pair[1]`.
+- Always write braces around control-flow bodies. `if (condition) { throw ... }` is valid; `if (condition) throw ...` is not.
 
 ```cangjie
 func relu(values: Array<Float64>): Array<Float64> {
@@ -21,7 +22,29 @@ func relu(values: Array<Float64>): Array<Float64> {
 
 The array contents are mutable even when the array reference is held by `let`; use `var` only when rebinding the variable itself.
 
-Array length and ordinary indices are `Int64` in the tested 1.1.3 APIs. Keep numeric types explicit when mixing `Int32`, `Int64`, `UInt64`, `Float32`, and `Float64`; if conversion syntax is uncertain, compile a tiny example rather than guessing.
+Array length and ordinary indices are `Int64` in the tested 1.1.3 APIs. Keep numeric types explicit when mixing `Int32`, `Int64`, `UInt64`, `Float32`, and `Float64`. Floating-point expressions require floating-point literals: use `2.0 * epsilon` and `epsilon <= 0.0`, not `2 * epsilon` or `epsilon <= 0`. Convert an integer count with `Float64(count)`; do not invent a method such as `count.toFloat64()`. If other conversion syntax is uncertain, compile a tiny example rather than guessing.
+
+Cangjie uses `this`, not `self`, for the current instance. Use an `if` expression for conditional values; do not import the C-style `condition ? left : right` operator from another language.
+
+## Strings and strict ASCII
+
+In the tested 1.1.3 SDK, indexing a `String` yields a `UInt8` and uses an
+`Int64` index. Do not write `Char`, `usize`, or Java-style `substring`.
+Prefer exact delimiter parsing with `split`; when a byte-level ASCII grammar is
+required, use numeric byte values.
+
+```cangjie
+func parseAsciiDigit(byte: UInt8): Int64 {
+    if (byte < UInt8(48) || byte > UInt8(57)) {
+        throw IllegalArgumentException("digit")
+    }
+    return Int64(byte - UInt8(48))
+}
+```
+
+Use `UInt8(97)..UInt8(122)` for lowercase ASCII letters. Validate the full
+string before mutating state, and compile a probe before assuming another
+Unicode or slicing API.
 
 ## Functions, Lambda, and closures
 
