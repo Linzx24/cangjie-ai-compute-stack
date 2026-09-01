@@ -8,6 +8,13 @@ v23.1 在本轮诊断性 A/B 中把首答成绩从 v22 的 `23/24` 次满分提�
 
 这是一项有效的能力信号，但不是正式晋级结论：原 v24 completion 因评分基础设施的私有路径规则冲突而保持 `INCONCLUSIVE`，这里的分数来自明确标注的 `posthoc_recovery_zero_hidden_feedback` 诊断恢复流程，`promotion=false`、`formal_promotion_eligible=false`。
 
+## 公开复现范围
+
+- [v24 公开评测集](../v24-suite/README.md)包含 4 道题、4 份故意不完整的 starter、16 个公开测试，以及封闭清单、文件哈希和校准脚本。
+- 公开套件聚合 SHA-256 为 `d7d0732cd9eb60fe51a32e0b7f2b00b1058f89d1cd165166e69e99c62a3b2d18`；公开校验器可复现 35 条文件哈希，starter 校准结果应为 `10/16`。
+- 在仓库根目录运行 `pwsh -NoProfile -File .\ai-tooling\benchmark\v24-suite\scripts\Validate-V24PublicSuite.ps1` 可以验证公开树的边界和完整性；具体编译命令见评测集说明。
+- 公开仓库不包含隐藏测试、参考答案和私有评分结果，因此只能复现题面、公开测试和 starter 基线，不能独立重放报告中的隐藏 300 分或完整 A/B 流程。
+
 ## 测试设置
 
 - 对比对象：已安装的 v22 稳定版（PreviousSkill）与仓库中的 v23.1 候选版（CandidateSkill）。

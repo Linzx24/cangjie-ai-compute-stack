@@ -1,0 +1,119 @@
+{
+  "id": "cangjie-v24-public",
+  "version": "24.0",
+  "schema": "v24-public-1",
+  "cangjie_version": "1.1.3",
+  "target": "cjnative-x86_64-w64-mingw32",
+  "cpu_only": true,
+  "dependencies": [],
+  "integrity": {
+    "algorithm": "SHA-256",
+    "manifest_hash_scope": "all-v24-files-except-public-suite.json",
+    "aggregate_algorithm": "sha256-utf8-lf-v1",
+    "aggregate_hash_scope": "manifest-sha256-plus-sorted-ordinal-declared-path-sha256-records",
+    "files": [
+      {"path": "01-windowed-attention/public/task.md", "sha256": "BFE47BF3EF935B7C0D9198759BD45A71B3B34A041F241B458797D39F25987835", "kind": "prompt"},
+      {"path": "01-windowed-attention/starter/cjpm.toml", "sha256": "4360930234E0B07EEB104A9C19040E27A33BB1415078718430DFB914D6DAD1A2", "kind": "config"},
+      {"path": "01-windowed-attention/starter/src/windowed_attention.cj", "sha256": "88014CEE20CF8B8B1C15EC71BA2AB03383ED87289E9BA9D6624A59C75EEAACE5", "kind": "source"},
+      {"path": "01-windowed-attention/tests/public_test_01.cj", "sha256": "3362A647968953A8A901F85A40A7CF95C683ED6E0E8F46BEDA6A9F75174FAE2A", "kind": "public-test"},
+      {"path": "01-windowed-attention/tests/public_test_02.cj", "sha256": "D50FD348A0AFC0FE9F4D45D391B22ED3A386F60EB1BCA0CCAC94D7B4AE7D9704", "kind": "public-test"},
+      {"path": "01-windowed-attention/tests/public_test_03.cj", "sha256": "D57AD262F82EBA3F95278DD7204BA0AFF48969C28BCAF36D2A9DE4D084F5FF46", "kind": "public-test"},
+      {"path": "01-windowed-attention/tests/public_test_04.cj", "sha256": "1575A37CD6074E61A1640BB66A8D562C9E87A396B565DC4A33598B973ED6E577", "kind": "public-test"},
+      {"path": "02-softmax-trainer/public/task.md", "sha256": "CB46974196E23CA78D413701CA36502847DFEF70F64E947FDC1B2CC4B697C556", "kind": "prompt"},
+      {"path": "02-softmax-trainer/starter/cjpm.toml", "sha256": "2A6F5E24CEF03A66C4E246C6BAF7274CFB26657C2827B94010DCA6FF21C3E67C", "kind": "config"},
+      {"path": "02-softmax-trainer/starter/src/softmax_trainer.cj", "sha256": "AF8D3E5ECD364E8810CE25C3B45F47533971560413F96D0918D8D76D7306A7BD", "kind": "source"},
+      {"path": "02-softmax-trainer/tests/public_test_01.cj", "sha256": "FDCCD683C0DBC45F995B0F3C7DD5561E2389BB8F4FA847BF968A38278E81E08D", "kind": "public-test"},
+      {"path": "02-softmax-trainer/tests/public_test_02.cj", "sha256": "F17026F1EC2AB90B9BB52771436C100D187B7910A30BD295013329486F6CCC13", "kind": "public-test"},
+      {"path": "02-softmax-trainer/tests/public_test_03.cj", "sha256": "98860A2AA5CB6208A592A3FA541CCFE106049269852FE335AAD4D0BB5E71E8F0", "kind": "public-test"},
+      {"path": "02-softmax-trainer/tests/public_test_04.cj", "sha256": "C48F9C9AF0BCD39DBBB75CE510B071E9E20FDEFF0C6C7AA402591A062DAAA7AE", "kind": "public-test"},
+      {"path": "03-event-batch-parser/public/task.md", "sha256": "32D1035712506568E668027A0E4E8752BF02434194A0DF9C40AB6AC708B3652B", "kind": "prompt"},
+      {"path": "03-event-batch-parser/starter/cjpm.toml", "sha256": "F3B7534D2E46738C0D710B4F27E221317890A71E2638514E94502BA6ABC5EE6C", "kind": "config"},
+      {"path": "03-event-batch-parser/starter/src/event_batch_parser.cj", "sha256": "D7B89CF212D2AB56C066C8D54C8BF174A9279ED611EDDAD93479AE5C364C5CEC", "kind": "source"},
+      {"path": "03-event-batch-parser/tests/public_test_01.cj", "sha256": "99EC05F88794DA15C787CDCF946C1F834BE3AC3D171D34D15D539640FA22DE24", "kind": "public-test"},
+      {"path": "03-event-batch-parser/tests/public_test_02.cj", "sha256": "BC305D331DCFE531EB9F1AB709E841ABB2557450E385C73BC1A768F30B8223D0", "kind": "public-test"},
+      {"path": "03-event-batch-parser/tests/public_test_03.cj", "sha256": "87A8BCD0AEC017AFFDEA80490183050993DF65A86207ED9A8CCAAAD2E858656B", "kind": "public-test"},
+      {"path": "03-event-batch-parser/tests/public_test_04.cj", "sha256": "02C2E7391037368634F8658C6FA35E13857B7BAA11A90FE007DC976FC3679299", "kind": "public-test"},
+      {"path": "04-state-snapshot/public/task.md", "sha256": "4D21CD03287DF8AE38422065F847CEAA5C5DC41D9E468F6B2A0A36FB7511ED32", "kind": "prompt"},
+      {"path": "04-state-snapshot/starter/cjpm.toml", "sha256": "41AFCDC12EBAAF7A1FE88B511FA028AE588975BA25E7751AE306457DA8BD65F5", "kind": "config"},
+      {"path": "04-state-snapshot/starter/src/state_snapshot.cj", "sha256": "7563ED15B3119021085842189779AE0A6BBDB82EB4F4BCE858ED06AC359E5D59", "kind": "source"},
+      {"path": "04-state-snapshot/tests/public_test_01.cj", "sha256": "73C89C612EDAA18EFACF6E899F7B5507C5649999AB23BD6A0D06D43E1F1D7848", "kind": "public-test"},
+      {"path": "04-state-snapshot/tests/public_test_02.cj", "sha256": "5AA2EC4FCF3A038AFC37E27797F2B3F2AAC5613B02DEDF4659534A31B3F28EBA", "kind": "public-test"},
+      {"path": "04-state-snapshot/tests/public_test_03.cj", "sha256": "E3D971E17502C27188E1CA03ECEC086EC27A5F5FE1B4487BD231E292078F8DBB", "kind": "public-test"},
+      {"path": "04-state-snapshot/tests/public_test_04.cj", "sha256": "AC38F139AB70C4C50568F23FE37FF11F928043891BC859AC2871D9C55D4953A8", "kind": "public-test"},
+      {"path": "CALIBRATION.md", "sha256": "286826361D1C8DF65F3F7F01F742317691E2E5675F9DB7A95835CF1AA45A4B92", "kind": "documentation"},
+      {"path": "COVERAGE.md", "sha256": "0D3D21C040A27A65ECA03350D02E79F1D5E24068E9CAC602CCF31192FF18C731", "kind": "documentation"},
+      {"path": "README.md", "sha256": "7A12C5344C718F7986A3571A677C18AA3BC3DB17A4C8C49A0741D3F1D27BB5EB", "kind": "documentation"},
+      {"path": "scripts/Cleanup-CalibrationArtifacts.ps1", "sha256": "FA5657295D93D5B53A0755A4B2B1FB65AA287B049A170E9FC57AA7707EB76632", "kind": "script"},
+      {"path": "scripts/Invoke-PublicCalibration.ps1", "sha256": "F9EB04D5206595C7C42B1A77052B8703E6FCD92C30874D16115FE57ED4006AB0", "kind": "script"},
+      {"path": "scripts/Validate-V24PublicSuite.ps1", "sha256": "FF6F79A716CCDDFF6FE3C65512D82ECE63047A5B19EE41EBBAB2F3A0002FCFAE", "kind": "script"},
+      {"path": "suite.schema.json", "sha256": "0DA82466DDB3391DADAA4A01CC617DA7B4DAEB4CCE3B8CBFFBA1D72EAD96F10F", "kind": "schema"}
+    ],
+    "boundary_inventory": {
+      "task_count": 4,
+      "replaceable_source_count": 4,
+      "public_test_count": 16,
+      "prompt_count": 4,
+      "script_count": 3,
+      "forbidden_path_segments": [".private-evals", "v17", "v18", "v19", "v20", "v21", "v22", "v23", "hidden", "reference", "private", "formal", "results", "target", "build", "x", "t"],
+      "forbidden_artifact_names": ["target", "build", "x", "t", "cjpm.lock", "*.exe", "*.cjo", "*.a", "*.bc"]
+    }
+  },
+  "tasks": [
+    {
+      "id": "01-windowed-attention",
+      "path": "01-windowed-attention",
+      "prompt": "01-windowed-attention/public/task.md",
+      "starter": "01-windowed-attention/starter",
+      "project_files": ["src/windowed_attention.cj"],
+      "public_tests": ["01-windowed-attention/tests/public_test_01.cj", "01-windowed-attention/tests/public_test_02.cj", "01-windowed-attention/tests/public_test_03.cj", "01-windowed-attention/tests/public_test_04.cj"],
+      "api_checks": [
+        {"source": "src/windowed_attention.cj", "pattern": "public struct WindowAttentionResult"},
+        {"source": "src/windowed_attention.cj", "pattern": "public func applyWindowedAttention"},
+        {"source": "src/windowed_attention.cj", "pattern": "public let outputs"},
+        {"source": "src/windowed_attention.cj", "pattern": "public let weights"}
+      ]
+    },
+    {
+      "id": "02-softmax-trainer",
+      "path": "02-softmax-trainer",
+      "prompt": "02-softmax-trainer/public/task.md",
+      "starter": "02-softmax-trainer/starter",
+      "project_files": ["src/softmax_trainer.cj"],
+      "public_tests": ["02-softmax-trainer/tests/public_test_01.cj", "02-softmax-trainer/tests/public_test_02.cj", "02-softmax-trainer/tests/public_test_03.cj", "02-softmax-trainer/tests/public_test_04.cj"],
+      "api_checks": [
+        {"source": "src/softmax_trainer.cj", "pattern": "public struct BatchReport"},
+        {"source": "src/softmax_trainer.cj", "pattern": "public class SoftmaxTrainer"},
+        {"source": "src/softmax_trainer.cj", "pattern": "public func trainBatch"},
+        {"source": "src/softmax_trainer.cj", "pattern": "public func reset"}
+      ]
+    },
+    {
+      "id": "03-event-batch-parser",
+      "path": "03-event-batch-parser",
+      "prompt": "03-event-batch-parser/public/task.md",
+      "starter": "03-event-batch-parser/starter",
+      "project_files": ["src/event_batch_parser.cj"],
+      "public_tests": ["03-event-batch-parser/tests/public_test_01.cj", "03-event-batch-parser/tests/public_test_02.cj", "03-event-batch-parser/tests/public_test_03.cj", "03-event-batch-parser/tests/public_test_04.cj"],
+      "api_checks": [
+        {"source": "src/event_batch_parser.cj", "pattern": "public struct EventRecord"},
+        {"source": "src/event_batch_parser.cj", "pattern": "public struct BatchResult"},
+        {"source": "src/event_batch_parser.cj", "pattern": "public class EventLog"},
+        {"source": "src/event_batch_parser.cj", "pattern": "public func appendBatch"}
+      ]
+    },
+    {
+      "id": "04-state-snapshot",
+      "path": "04-state-snapshot",
+      "prompt": "04-state-snapshot/public/task.md",
+      "starter": "04-state-snapshot/starter",
+      "project_files": ["src/state_snapshot.cj"],
+      "public_tests": ["04-state-snapshot/tests/public_test_01.cj", "04-state-snapshot/tests/public_test_02.cj", "04-state-snapshot/tests/public_test_03.cj", "04-state-snapshot/tests/public_test_04.cj"],
+      "api_checks": [
+        {"source": "src/state_snapshot.cj", "pattern": "public struct SnapshotSeries"},
+        {"source": "src/state_snapshot.cj", "pattern": "public struct StateSnapshot"},
+        {"source": "src/state_snapshot.cj", "pattern": "public func encodeState"},
+        {"source": "src/state_snapshot.cj", "pattern": "public func decodeState"}
+      ]
+    }
+  ]
+}

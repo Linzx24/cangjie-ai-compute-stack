@@ -79,6 +79,20 @@ Windows 开发环境请先阅读 [docs/setup-cangjie-1.1.3-windows.md](docs/setu
 
 该脚本会校验 SDK 哈希、构建 Linux 镜像，并测试 hello 示例和仓颉语言能力验证套件。实测结果见 [Docker/Linux 验证记录](docs/docker-linux-validation.md)。
 
+## 可复现 Benchmark
+
+当前冻结的公开评测集是 [Cangjie v24 Benchmark](ai-tooling/benchmark/v24-suite)：包含 4 道复杂任务、4 份待完善 starter、16 个公开测试，以及清单、哈希和校准脚本。题目覆盖窗口注意力、Softmax 训练、批量事件解析和状态快照。
+
+在安装 Cangjie 1.1.3 后，可以验证公开评测集的文件边界和完整性：
+
+```powershell
+pwsh -NoProfile -File .\ai-tooling\benchmark\v24-suite\scripts\Validate-V24PublicSuite.ps1
+```
+
+Windows 下建议把仓库放在较短的绝对路径中；路径过深时，`cjpm` 生成的构建日志路径可能超过系统限制。
+
+最新版 Skill 与上一稳定版的诊断性 A/B 结果见 [v24 测试报告](ai-tooling/benchmark/results/benchmark-v24-v22-vs-v23.1-2026-09-01.md)。公开仓库只保存题面、starter、公开测试和复现工具，不保存隐藏测试或参考答案；已经出分的 v24 不再改题，后续扩展使用新的 Benchmark 版本。
+
 ## Codex Skill
 
 仓颉开发 Skill 位于 [ai-tooling/skills/cangjie-developer](ai-tooling/skills/cangjie-developer)。将该目录复制到 Codex 的 `skills` 目录后，可在新任务中使用：
@@ -87,7 +101,7 @@ Windows 开发环境请先阅读 [docs/setup-cangjie-1.1.3-windows.md](docs/setu
 使用 $cangjie-developer 实现并验证这个仓颉任务。
 ```
 
-Skill 会引导 Codex 使用真实的 `cjc` / `cjpm` 编译测试，并按需读取语言核心、抽象与集合、工程测试、并发与 C 互操作或 AI 数值实现资料。Benchmark v0.3 的隔离复测为 45/45；详细结果见 [Skill 复测报告](ai-tooling/benchmark/results/skill-v0.3-2026-08-26.md)。
+Skill 会引导 Codex 使用真实的 `cjc` / `cjpm` 编译测试，并按需读取语言核心、抽象与集合、工程测试、并发与 C 互操作或 AI 数值实现资料。最新公开证据以冻结的 v24 评测集和对应报告为准；该轮结果属于诊断性证据，不冒充正式晋级结论。
 
 独立于正式框架的语言验证套件位于 [ai-tooling/validation](ai-tooling/validation)，用于确认 Skill 中的关键语法和工程判断能通过真实编译器。
 当前覆盖范围、验证证据和能力边界见 [仓颉 Skill 验收报告](docs/cangjie-skill-validation.md)。
