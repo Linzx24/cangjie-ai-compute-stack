@@ -1,5 +1,9 @@
 # 项目路线图
 
+最后更新：2026-09-05
+
+本公共仓库是整个项目的总入口，也是 Skill 与 Benchmark 的唯一真源；机器学习 alpha 在私有协作仓 `Xi-shiqing/cangjie_machinelearning` 开发，不复制 Skill。该私有仓尚无开源许可证，许可证明确前不向本公共仓库迁移源码。
+
 ## Phase 0 — 立项与环境
 
 - [ ] 确定项目正式名称和对外介绍
@@ -9,33 +13,33 @@
 - [x] 安装 Docker Desktop 与 WSL 2
 - [x] 在安装 Docker 后完成 Linux 运行验证
 - [ ] 完成比赛规则与现有项目查重
-- [ ] 确定两人分工和每周验收标准
+- [x] 确定公共工具仓与私有机器学习仓的协作边界
 
 ## Phase 1 — 仓颉开发能力
 
 - [x] 建立第一个仓颉可编译示例
 - [x] 建立无 Skill 基线 Benchmark v0.1
 - [x] 扩展 Benchmark v0.3，增加 Option、泛型、诊断和 Tensor 综合题
-- [x] 发布 Cangjie Developer Skill v0.1
+- [x] 发布并安装 Cangjie Developer Skill v22 稳定版
 - [x] 建立 Cangjie Doctor 初版
 - [x] 对比使用 Skill 前后的成绩
+- [x] 冻结 v24 公开评测集并完成 v22 与 v23.1 的诊断性 A/B
+- [ ] 在新的预注册 Benchmark 上完成 v23.1 正式晋级验证（v24 正式结论为 `INCONCLUSIVE`）
 
-## Phase 2 — CjTensor 最小原型
+## Phase 2 — 机器学习 alpha（私有协作仓）
 
-- [ ] Tensor 数据与 shape
-- [ ] add、mul、sum、matmul
-- [ ] 最小动态计算图
-- [ ] `y = x * x + x` 自动微分验证
-- [ ] 数值梯度检查
+- [x] 完成 README 标记的 `v0.1.0-alpha.1` 开发检查点
+- [x] 使用 Cangjie 1.1.3 构建 CPU core
+- [x] CPU core 单元测试 `243/243` 通过
+- [x] `model-demo` 构建成功
+- [ ] 选择并附加明确的开源许可证
+- [ ] 许可证明确后决定源码公开迁移方案
 
-## Phase 3 — 神经网络闭环
+## Phase 3 — 加速后端真实硬件验证
 
-- [ ] Module 与 Parameter
-- [ ] Linear、ReLU、Sequential
-- [ ] 损失函数
-- [ ] SGD
-- [ ] XOR 训练
-- [ ] MNIST 训练
+- [ ] 在目标 CUDA 硬件上完成构建、测试与演示
+- [ ] 在目标 CANN 硬件上完成构建、测试与演示
+- [ ] 记录可复现的正确性与性能结果
 
 ## Phase 4 — 工程化与性能
 
