@@ -16,18 +16,17 @@ For an exact structured file response, copy every requested project-relative pat
 1. Read repository instructions, `cjpm.toml`, source, and tests before editing. Run `scripts/check-environment.ps1` only when the SDK state is unknown.
 2. Read only the references needed for the task; prefer one or two topic references over a broad bundle:
    - Read [language-pitfalls.md](references/language-pitfalls.md) for bindings, numeric types, functions, Lambda, arrays, tuples, `Option`, pattern matching, exceptions, or compiler errors.
-   - Read [abstraction-and-collections.md](references/abstraction-and-collections.md) for struct/class choice, interfaces, inheritance, generics, visibility, extensions, collection types, variable-length outputs, or an error involving an `Array`/`ArrayList` member or constructor.
+   - Read [abstraction-and-collections.md](references/abstraction-and-collections.md) for struct/class choice, interfaces, inheritance, generics, visibility, extensions, or collection types.
    - Read [project-and-test.md](references/project-and-test.md) for package layout, `cjpm`, unit tests, or platform checks.
-   - Read [ml-implementation-workflow.md](references/ml-implementation-workflow.md) only for a substantial new ML feature whose correctness couples at least two of formulas/shapes, ownership, mutable state, serialization, concurrency, or multiple files. Skip it when the work is localized and does not couple at least two of those dimensions, such as a focused compiler/API repair or mechanical edit. This workflow is an internal execution aid; an exact-output task still returns only the requested artifact, without plan or oracle text.
    - Read [ai-compute-patterns.md](references/ai-compute-patterns.md) for tensors, layers, convolution, stable reductions, or quantized numerical kernels.
    - Read [ml-autodiff-training.md](references/ml-autodiff-training.md) for gradients, reverse-mode graphs, parameters, optimizers, or training loops.
    - Read [ml-data-state.md](references/ml-data-state.md) for samplers, masks, ragged batches, cursors, epochs, caches, or reset semantics.
    - Read [ml-checkpoint.md](references/ml-checkpoint.md) for deterministic serialization, file I/O, save/load, versioning, or corrupted input.
    - Read [concurrency-and-interop.md](references/concurrency-and-interop.md) only for `spawn`, synchronization, backends, C FFI, native libraries, BLAS, or unsafe code.
    - Read [ml-preflight.md](references/ml-preflight.md) before implementing and again before final review of a substantial multi-file numerical change.
-   - Read [compiler-diagnostics.md](references/compiler-diagnostics.md) after a compiler failure or when code resembles another language; follow its focused cross-reference instead of reloading unrelated ML guidance.
-3. Make the smallest coherent change. For a task routed to the ML implementation workflow, settle only the decisions that affect code, ground nontrivial APIs in repository evidence, a loaded reference, or a compiler probe, then implement Cangjie-native slices; never write a complete implementation in another language to translate line by line. Default to CPU-only and dependency-light. For a new small numerical core or state/I/O component, adapt the compile-tested project in `assets/` instead of recreating SDK patterns from memory.
-4. When execution is allowed, run `scripts/Invoke-CangjieQualityGate.ps1 -ProjectPath <manifest-directory>` for preflight, build, and tests; add `-StrictNumerical` only for a substantial multi-file numerical change. Findings are review prompts; `cjc` and behavioral tests are authoritative. After a compiler failure, the first actionable diagnostic overrides the prior plan: preserve working API and logic, replace only the invalid construct and its minimum type ripple, and do not introduce another unverified API. Rerun the narrow failure, then the full gate. Report verification honestly.
+   - Read [compiler-diagnostics.md](references/compiler-diagnostics.md) after a compiler failure or when code resembles another language.
+3. Make the smallest coherent change; default to CPU-only and dependency-light. For a new small numerical core or state/I/O component, adapt the compile-tested project in `assets/` instead of recreating SDK patterns from memory.
+4. When execution is allowed, run `scripts/Invoke-CangjieQualityGate.ps1 -ProjectPath <manifest-directory>` for preflight, build, and tests; add `-StrictNumerical` only for a substantial multi-file numerical change. Findings are review prompts; `cjc` and behavioral tests are authoritative. Fix the first useful diagnostic, rerun the narrow failure, then rerun the full gate. Report verification honestly.
 
 ## Non-negotiable rules
 
@@ -39,7 +38,6 @@ For an exact structured file response, copy every requested project-relative pat
 - Keep numeric types explicit. Convert counts with `Float64(count)` before floating-point division. Import `std.math.*` for `sqrt`, `exp`, `log`, or `pow`; use `log`, not `ln`.
 - Reject `NaN`/`Inf` with `isNaN()`/`isInf()` wherever the public contract requires finite values, and validate exact endpoints before loops or delegated calls.
 - Copy an `Array<T>` by allocating the destination and filling it by index; `Array<T>(source)` is not a copy constructor in the pinned SDK.
-- `Array<T>` has fixed length and no `add` or `append`. If output length is unknown, use the verified `std.collection.*` `ArrayList<T>` with `add`, or make a sizing pass and fill a fixed `Array<T>` by index.
 - A `String` index in the pinned SDK yields `UInt8`, and ordinary indices are `Int64`. Do not invent `Char`, `usize`, or Java-style `substring`; use exact `split` delimiters or compare ASCII bytes with values such as `UInt8(48)` and `UInt8(57)`.
 - Keep `unsafe` local to the smallest C-interop operation. Never guess a foreign signature, ownership rule, or library path.
 - Validate tensor shapes, overflow-prone size calculations, and indices before numerical loops. Prefer a flat row-major `Array<Float64>` for an initial Tensor implementation.
