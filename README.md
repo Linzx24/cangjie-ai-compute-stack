@@ -2,7 +2,7 @@
 
 面向仓颉编程语言的轻量级原生 AI 计算栈。
 
-本项目计划使用仓颉实现张量计算、自动微分、基础神经网络和可扩展计算后端，并提供配套的 Codex 仓颉开发 Skill、编译诊断工具及可重复 Benchmark。
+本公共仓库是整个项目的总入口，当前直接维护 Codex 仓颉开发 Skill、编译诊断工具、可重复 Benchmark 和跨仓库路线图。机器学习库 alpha 暂在私有协作仓 `Xi-shiqing/cangjie_machinelearning` 开发，许可证明确后再决定迁入方式。
 
 ## 项目愿景
 
@@ -34,30 +34,30 @@ Backend：CPU，后续扩展 GPU / NPU
 - 单元测试、梯度检查和性能基准；
 - Codex 仓颉开发与编译诊断 Skill。
 
-## 仓库规划
+## 仓库边界
 
 ```text
-framework/              # CjTensor 机器学习框架主体
-examples/               # XOR、MNIST 等完整演示
-ai-tooling/              # Skill、Benchmark 和诊断工具
-docs/                   # 架构、比赛材料和开发文档
-ROADMAP.md               # 项目阶段计划
+examples/               # 公开的仓颉验证示例
+ai-tooling/             # Skill、Benchmark 和诊断工具
+docs/                   # 架构、环境与验证文档
+ROADMAP.md              # 跨仓库阶段计划
 ```
 
-## 两位成员当前分工
+本公共仓库既是项目总入口，也是 Skill 与 Benchmark 的唯一真源。机器学习私有仓只消费这些开发工具，不复制 Skill，也不把 Skill 引入框架运行时依赖；Skill 或 Benchmark 的变更统一回到本仓库维护。
 
-- 项目计划：需求范围、开发排期、演示与比赛材料规划。
-- 仓颉 AI 开发能力：仓颉学习、Skill、Benchmark、编译诊断及验证环境。
+机器学习框架源码目前只存在于私有协作仓，版本为 `v0.1.0-alpha.1`。该仓尚未附加开源许可证，因此其源码暂不复制或迁入本公共仓库。
 
-具体代码模块将在计划确认后进一步分配，所有成果统一进入本仓库。
+## 当前协作边界
 
-## 当前阶段
+- 本公共仓库负责项目总览、跨仓库路线图、Skill、Benchmark、Doctor、验证环境及公开状态文档。
+- 私有协作仓负责机器学习库 alpha 的实现与验证；许可证明确后再决定公开迁移方案。
 
-1. 固定 STS Cangjie 1.1.3 开发环境；
-2. 建立仓颉可编译示例和能力 Benchmark；
-3. 完成仓颉开发 Skill 与编译诊断 Skill 的验证；
-4. 合并正式项目计划；
-5. 进入框架主体开发。
+## 当前状态
+
+- Cangjie 1.1.3 CPU core 已真实构建并通过 `243/243` 项测试；
+- `model-demo` 已在同一 Cangjie 1.1.3 环境构建成功；
+- CUDA 与 CANN 后端已有 alpha 源码，但尚未在对应真实硬件上验证；
+- 机器学习源码因缺少开源许可证暂不进入本公共仓库。
 
 ## 立即开始
 
@@ -91,17 +91,19 @@ pwsh -NoProfile -File .\ai-tooling\benchmark\v24-suite\scripts\Validate-V24Publi
 
 Windows 下建议把仓库放在较短的绝对路径中；路径过深时，`cjpm` 生成的构建日志路径可能超过系统限制。
 
-最新版 Skill 与上一稳定版的诊断性 A/B 结果见 [v24 测试报告](ai-tooling/benchmark/results/benchmark-v24-v22-vs-v23.1-2026-09-01.md)。公开仓库只保存题面、starter、公开测试和复现工具，不保存隐藏测试或参考答案；已经出分的 v24 不再改题，后续扩展使用新的 Benchmark 版本。
+v22 稳定版与 v23.1 候选版的诊断性 A/B 结果见 [v24 测试报告](ai-tooling/benchmark/results/benchmark-v24-v22-vs-v23.1-2026-09-01.md)。公开仓库只保存题面、starter、公开测试和复现工具，不保存隐藏测试或参考答案；已经出分的 v24 不再改题，后续扩展使用新的 Benchmark 版本。
 
 ## Codex Skill
 
-仓颉开发 Skill 位于 [ai-tooling/skills/cangjie-developer](ai-tooling/skills/cangjie-developer)。将该目录复制到 Codex 的 `skills` 目录后，可在新任务中使用：
+日常开发请安装固定的 [v22 稳定版 Skill](https://github.com/Linzx24/cangjie-ai-compute-stack/tree/cangjie-developer-v22-stable/ai-tooling/skills/cangjie-developer)。主分支中的 [v23.1 候选版](https://github.com/Linzx24/cangjie-ai-compute-stack/tree/cangjie-developer-v23.1-candidate/ai-tooling/skills/cangjie-developer) 只用于后续 A/B，不作为默认安装版本。将稳定版目录复制到 Codex 的 `skills` 目录后，可在新任务中使用：
 
 ```text
 使用 $cangjie-developer 实现并验证这个仓颉任务。
 ```
 
-Skill 会引导 Codex 使用真实的 `cjc` / `cjpm` 编译测试，并按需读取语言核心、抽象与集合、工程测试、并发与 C 互操作或 AI 数值实现资料。最新公开证据以冻结的 v24 评测集和对应报告为准；该轮结果属于诊断性证据，不冒充正式晋级结论。
+当前已安装的稳定版是 `v22`，本仓库主分支中的目录是 `v23.1` 候选版。Skill 会引导 Codex 使用真实的 `cjc` / `cjpm` 编译测试，并按需读取语言核心、抽象与集合、工程测试、并发与 C 互操作或 AI 数值实现资料。
+
+冻结的 v24 结果仅是诊断性证据；原正式实验结论仍为 `INCONCLUSIVE`，`promotion=false`，不能据此把 v23.1 表述为已晋级或已安装。正式晋级需要修复基础设施后，在新的预注册 Benchmark 版本上从头运行干净 A/B。
 
 独立于正式框架的语言验证套件位于 [ai-tooling/validation](ai-tooling/validation)，用于确认 Skill 中的关键语法和工程判断能通过真实编译器。
 当前覆盖范围、验证证据和能力边界见 [仓颉 Skill 验收报告](docs/cangjie-skill-validation.md)。
