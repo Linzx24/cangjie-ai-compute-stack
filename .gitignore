@@ -5,6 +5,7 @@ target/
 *.log
 .DS_Store
 Thumbs.db
+/.private-evals/
 
 # Local Cangjie SDK archives are large and must not be committed.
 docker/sdk/*.tar.gz
