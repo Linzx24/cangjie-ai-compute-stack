@@ -1,6 +1,28 @@
-# Cangjie Benchmark v0.3
+# Cangjie Benchmark
 
 这是一套用于比较 Codex 使用仓颉 Skill 前后能力变化的小型测试。
+
+## 当前复杂公开套件
+
+[v25-suite](v25-suite) 包含 4 道相互独立的仓颉 1.1.3 CPU 任务和 16 个公开测试，覆盖稳定数值计算、梯度状态、搜索排序以及模型检查点。它不包含隐藏测试或参考答案。
+
+验证公开文件边界、哈希和题目结构：
+
+```powershell
+pwsh -NoProfile -File .\v25-suite\scripts\Validate-V25PublicSuite.ps1
+```
+
+使用本机的 `cjc` 和 `cjpm` 编译 starter 并运行全部公开测试：
+
+```powershell
+pwsh -NoProfile -File .\v25-suite\scripts\Invoke-PublicCalibration.ps1 `
+    -CjpmPath (Get-Command cjpm).Source `
+    -CjcPath (Get-Command cjc).Source
+```
+
+该公开套件用于开发和复现题目基础设施，不单独证明某个 Skill 已经优于稳定版。v23.1 是否晋级仍以新的正式 A/B 为准。
+
+## v0.3 基础套件
 
 ## 它怎么判分
 

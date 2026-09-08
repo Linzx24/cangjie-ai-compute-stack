@@ -81,17 +81,17 @@ Windows 开发环境请先阅读 [docs/setup-cangjie-1.1.3-windows.md](docs/setu
 
 ## 可复现 Benchmark
 
-当前冻结的公开评测集是 [Cangjie v24 Benchmark](ai-tooling/benchmark/v24-suite)：包含 4 道复杂任务、4 份待完善 starter、16 个公开测试，以及清单、哈希和校准脚本。题目覆盖窗口注意力、Softmax 训练、批量事件解析和状态快照。
+当前最新的公开评测集是 [Cangjie v25 Benchmark](ai-tooling/benchmark/v25-suite)：包含 4 道复杂任务、4 份待完善 starter、16 个公开测试，以及清单、哈希和校准脚本。题目覆盖稳定数值计算、梯度状态、搜索排序和模型检查点。已经用于诊断性 A/B 的 [v24](ai-tooling/benchmark/v24-suite) 保持冻结，不再改题。
 
 在安装 Cangjie 1.1.3 后，可以验证公开评测集的文件边界和完整性：
 
 ```powershell
-pwsh -NoProfile -File .\ai-tooling\benchmark\v24-suite\scripts\Validate-V24PublicSuite.ps1
+pwsh -NoProfile -File .\ai-tooling\benchmark\v25-suite\scripts\Validate-V25PublicSuite.ps1
 ```
 
 Windows 下建议把仓库放在较短的绝对路径中；路径过深时，`cjpm` 生成的构建日志路径可能超过系统限制。
 
-v22 稳定版与 v23.1 候选版的诊断性 A/B 结果见 [v24 测试报告](ai-tooling/benchmark/results/benchmark-v24-v22-vs-v23.1-2026-09-01.md)。公开仓库只保存题面、starter、公开测试和复现工具，不保存隐藏测试或参考答案；已经出分的 v24 不再改题，后续扩展使用新的 Benchmark 版本。
+v22 稳定版与 v23.1 候选版的诊断性 A/B 结果见 [v24 测试报告](ai-tooling/benchmark/results/benchmark-v24-v22-vs-v23.1-2026-09-01.md)。公开仓库只保存题面、starter、公开测试和复现工具，不保存隐藏测试或参考答案。v25 的公开题目与校准已经就绪，但正式 A/B 尚未完成。
 
 ## Codex Skill
 

@@ -1,0 +1,364 @@
+{
+  "id": "cangjie-v25-public",
+  "version": "25.0",
+  "schema": "v25-public-1",
+  "cangjie_version": "1.1.3",
+  "target": "cjnative-x86_64-w64-mingw32",
+  "cpu_only": true,
+  "dependencies": [],
+  "integrity": {
+    "algorithm": "SHA-256",
+    "manifest_hash_scope": "all-v25-files-except-public-suite.json",
+    "aggregate_algorithm": "sha256-utf8-lf-v1",
+    "aggregate_hash_scope": "manifest-sha256-plus-sorted-ordinal-declared-path-sha256-records",
+    "files": [
+      {
+        "path": "01-masked-smoothing/public/task.md",
+        "sha256": "E8A1EA393D94EF44730A13F9047CB9AA7FA9580A40E07606C754BEF9B2088F1E",
+        "kind": "prompt"
+      },
+      {
+        "path": "01-masked-smoothing/starter/cjpm.toml",
+        "sha256": "AE3257E7F84AFE0584A3548A0D6F19E470969DC9EBB3F55EC630D07134AF8AC9",
+        "kind": "config"
+      },
+      {
+        "path": "01-masked-smoothing/starter/src/masked_smoothing.cj",
+        "sha256": "50D3398A1F1B63B2B67E36BFF78123AD53EEB1A1E2E6A4A256D85BB738537BE4",
+        "kind": "source"
+      },
+      {
+        "path": "01-masked-smoothing/tests/public_test_01.cj",
+        "sha256": "AB83845DC89CE6EBCE874745EB5331EFE5C4BEBB92A6805D165A2277E806F5C2",
+        "kind": "public-test"
+      },
+      {
+        "path": "01-masked-smoothing/tests/public_test_02.cj",
+        "sha256": "8CB96ADC95D7EECEB06940CCCF90A6A06B50268C317BB0E0BA4A98A980098259",
+        "kind": "public-test"
+      },
+      {
+        "path": "01-masked-smoothing/tests/public_test_03.cj",
+        "sha256": "553AB35232D17F9F623C9B16DBD39DD1F25FAC8CC3D42E48B68CB05D7F442555",
+        "kind": "public-test"
+      },
+      {
+        "path": "01-masked-smoothing/tests/public_test_04.cj",
+        "sha256": "8C6F6C66B10BD86A6FC3FC01FBECBFE8C8CA6EE7C9C7A218F0B63A5EC436DC42",
+        "kind": "public-test"
+      },
+      {
+        "path": "02-gradient-window/public/task.md",
+        "sha256": "E1A8BA376E5BD98D708933C1FBADFE42AA0FA0561FE9A848CE393332C742665C",
+        "kind": "prompt"
+      },
+      {
+        "path": "02-gradient-window/starter/cjpm.toml",
+        "sha256": "DC2D22EF4DC9E1403419A87D8DF969ED301AEE3139A36ADF0900734B7B74EB11",
+        "kind": "config"
+      },
+      {
+        "path": "02-gradient-window/starter/src/gradient_window.cj",
+        "sha256": "70D26DFB15C7E158C1A14BEB3C01FF8734CB691B133C9DCE79EDF3080452488A",
+        "kind": "source"
+      },
+      {
+        "path": "02-gradient-window/tests/public_test_01.cj",
+        "sha256": "9EA22D7076C63A45EF5E89F617507198CB3B19CE63083824D6D9DAA6279C4B77",
+        "kind": "public-test"
+      },
+      {
+        "path": "02-gradient-window/tests/public_test_02.cj",
+        "sha256": "92AC59F2225E1FE7396F08D6B628F34EF24E33B7DCAD0A1EEA41BA0F66FAB585",
+        "kind": "public-test"
+      },
+      {
+        "path": "02-gradient-window/tests/public_test_03.cj",
+        "sha256": "DE65776D369EE5129894073C5D64EE08EC8B639B80E041B235CC14D24C9206A5",
+        "kind": "public-test"
+      },
+      {
+        "path": "02-gradient-window/tests/public_test_04.cj",
+        "sha256": "E438AF4785C88B823B3947501A4AB541F1EA742BC3949A305D99847DF2660F6C",
+        "kind": "public-test"
+      },
+      {
+        "path": "03-beam-frontier/public/task.md",
+        "sha256": "A3F6F05F76BAABB901333AECA2ED158F7E543DA7B83A93E0961C12F6DAE5BF00",
+        "kind": "prompt"
+      },
+      {
+        "path": "03-beam-frontier/starter/cjpm.toml",
+        "sha256": "CA967D73B621BAABDEBA751D9887D62372EB98A8BCA8D7DFE085E70C53AA8F4C",
+        "kind": "config"
+      },
+      {
+        "path": "03-beam-frontier/starter/src/beam_frontier.cj",
+        "sha256": "A7BF262F99FF86257A7D7C0066CC495B8DB5577DA850DD8ACF8D0B4137A5DE34",
+        "kind": "source"
+      },
+      {
+        "path": "03-beam-frontier/tests/public_test_01.cj",
+        "sha256": "4BF293FBBB438D103A07DA69D3A6408DEE62F0B7548447424FF9754E490DEE47",
+        "kind": "public-test"
+      },
+      {
+        "path": "03-beam-frontier/tests/public_test_02.cj",
+        "sha256": "EED1768BBFD070B8C7907EF4D0560BF8A318A0BB59AB574A893CB47F5F61908B",
+        "kind": "public-test"
+      },
+      {
+        "path": "03-beam-frontier/tests/public_test_03.cj",
+        "sha256": "2E3DBD591EFAB5E5F68796B290A5867F6E5A5A58FAD70979F74793C88E957CB6",
+        "kind": "public-test"
+      },
+      {
+        "path": "03-beam-frontier/tests/public_test_04.cj",
+        "sha256": "6B63BCFF19B95F1B4C4621E4C572EA7EC0988C7EF525EECDCBE93A5B72AD81A3",
+        "kind": "public-test"
+      },
+      {
+        "path": "04-tensor-checkpoint/public/task.md",
+        "sha256": "E1D4435C79866BF4297FEB8FE457A2A9F9A02707CBB6005F714B38BB597FF908",
+        "kind": "prompt"
+      },
+      {
+        "path": "04-tensor-checkpoint/starter/cjpm.toml",
+        "sha256": "E7D93E0C2D6143E638AE144694E68F87DB999804C6FA48A900D3FD7E8C8B59D6",
+        "kind": "config"
+      },
+      {
+        "path": "04-tensor-checkpoint/starter/src/tensor_checkpoint.cj",
+        "sha256": "26F17153D8B352927F0112783C70599E2F21F5F342E7BFFAAEB836E20B8E04BB",
+        "kind": "source"
+      },
+      {
+        "path": "04-tensor-checkpoint/tests/public_test_01.cj",
+        "sha256": "2682044AFED51D24FF5EC0060BD19B3409899C081CB8C85F6D3F08125E0CA6C5",
+        "kind": "public-test"
+      },
+      {
+        "path": "04-tensor-checkpoint/tests/public_test_02.cj",
+        "sha256": "53B5530DE92505BFFDDCDFF9BAB00CA9B8A7283237160C1A54236309D12727D8",
+        "kind": "public-test"
+      },
+      {
+        "path": "04-tensor-checkpoint/tests/public_test_03.cj",
+        "sha256": "A1BF4010475A54C1D396CA0448D265995B52A0918BFDA46F99B938B751AC8C1C",
+        "kind": "public-test"
+      },
+      {
+        "path": "04-tensor-checkpoint/tests/public_test_04.cj",
+        "sha256": "8A6A52BF0999DB22EEE5F0BBD635575AE7C9E04FC14F3A554A97CEB517F7DE8A",
+        "kind": "public-test"
+      },
+      {
+        "path": "CALIBRATION.md",
+        "sha256": "B05610B49B03AEC61087BC7AA4A3D2CE400240A67C7DA4FCDB19521D0947130D",
+        "kind": "documentation"
+      },
+      {
+        "path": "COVERAGE.md",
+        "sha256": "D06FB57017E7624EF7B14A45990FDCFCAF396C3C00CDACBC8E38AA2224902DC4",
+        "kind": "documentation"
+      },
+      {
+        "path": "README.md",
+        "sha256": "049D3F264E07657C8432073CB3F0CA69F41B6F4B13DBD4977FFF96B24BC61118",
+        "kind": "documentation"
+      },
+      {
+        "path": "scripts/Cleanup-CalibrationArtifacts.ps1",
+        "sha256": "8183EF4CFE85A46E83553B1922373098726B3244F009441B1CBF542CD05349EE",
+        "kind": "script"
+      },
+      {
+        "path": "scripts/Invoke-PublicCalibration.ps1",
+        "sha256": "423E858AEAE1BCE4F8F9C1FF8044C8CCD523E180C3517B91115EF7431E39F944",
+        "kind": "script"
+      },
+      {
+        "path": "scripts/Validate-V25PublicSuite.ps1",
+        "sha256": "BE4D3A27ED52D6F40888E2814E257DBC0C9E7DF7FFF0067C5642DE3A322FA471",
+        "kind": "script"
+      },
+      {
+        "path": "suite.schema.json",
+        "sha256": "C309608CF94AA7A3CBA30252B3A8679032BF3ACFE8751BD45B44907F879497F5",
+        "kind": "schema"
+      }
+    ],
+    "boundary_inventory": {
+      "task_count": 4,
+      "replaceable_source_count": 4,
+      "public_test_count": 16,
+      "prompt_count": 4,
+      "script_count": 3,
+      "forbidden_path_segments": [
+        ".private-evals",
+        "v17",
+        "v18",
+        "v19",
+        "v20",
+        "v21",
+        "v22",
+        "v23",
+        "v24",
+        "hidden",
+        "reference",
+        "private",
+        "formal",
+        "results",
+        "target",
+        "build",
+        "x",
+        "t"
+      ],
+      "forbidden_artifact_names": [
+        "target",
+        "build",
+        "x",
+        "t",
+        "cjpm.lock",
+        "*.exe",
+        "*.cjo",
+        "*.a",
+        "*.bc"
+      ]
+    }
+  },
+  "tasks": [
+    {
+      "id": "01-masked-smoothing",
+      "path": "01-masked-smoothing",
+      "prompt": "01-masked-smoothing/public/task.md",
+      "starter": "01-masked-smoothing/starter",
+      "project_files": [
+        "src/masked_smoothing.cj"
+      ],
+      "public_tests": [
+        "01-masked-smoothing/tests/public_test_01.cj",
+        "01-masked-smoothing/tests/public_test_02.cj",
+        "01-masked-smoothing/tests/public_test_03.cj",
+        "01-masked-smoothing/tests/public_test_04.cj"
+      ],
+      "api_checks": [
+        {
+          "source": "src/masked_smoothing.cj",
+          "pattern": "public struct SmoothedLossResult"
+        },
+        {
+          "source": "src/masked_smoothing.cj",
+          "pattern": "public func maskedSmoothedCrossEntropy"
+        },
+        {
+          "source": "src/masked_smoothing.cj",
+          "pattern": "public let probabilities"
+        },
+        {
+          "source": "src/masked_smoothing.cj",
+          "pattern": "public let gradients"
+        }
+      ]
+    },
+    {
+      "id": "02-gradient-window",
+      "path": "02-gradient-window",
+      "prompt": "02-gradient-window/public/task.md",
+      "starter": "02-gradient-window/starter",
+      "project_files": [
+        "src/gradient_window.cj"
+      ],
+      "public_tests": [
+        "02-gradient-window/tests/public_test_01.cj",
+        "02-gradient-window/tests/public_test_02.cj",
+        "02-gradient-window/tests/public_test_03.cj",
+        "02-gradient-window/tests/public_test_04.cj"
+      ],
+      "api_checks": [
+        {
+          "source": "src/gradient_window.cj",
+          "pattern": "public struct GradientWindowReport"
+        },
+        {
+          "source": "src/gradient_window.cj",
+          "pattern": "public class GradientWindow"
+        },
+        {
+          "source": "src/gradient_window.cj",
+          "pattern": "public func add"
+        },
+        {
+          "source": "src/gradient_window.cj",
+          "pattern": "public func reset"
+        }
+      ]
+    },
+    {
+      "id": "03-beam-frontier",
+      "path": "03-beam-frontier",
+      "prompt": "03-beam-frontier/public/task.md",
+      "starter": "03-beam-frontier/starter",
+      "project_files": [
+        "src/beam_frontier.cj"
+      ],
+      "public_tests": [
+        "03-beam-frontier/tests/public_test_01.cj",
+        "03-beam-frontier/tests/public_test_02.cj",
+        "03-beam-frontier/tests/public_test_03.cj",
+        "03-beam-frontier/tests/public_test_04.cj"
+      ],
+      "api_checks": [
+        {
+          "source": "src/beam_frontier.cj",
+          "pattern": "public struct BeamChoice"
+        },
+        {
+          "source": "src/beam_frontier.cj",
+          "pattern": "public struct BeamStep"
+        },
+        {
+          "source": "src/beam_frontier.cj",
+          "pattern": "public class BeamFrontier"
+        },
+        {
+          "source": "src/beam_frontier.cj",
+          "pattern": "public func expand"
+        }
+      ]
+    },
+    {
+      "id": "04-tensor-checkpoint",
+      "path": "04-tensor-checkpoint",
+      "prompt": "04-tensor-checkpoint/public/task.md",
+      "starter": "04-tensor-checkpoint/starter",
+      "project_files": [
+        "src/tensor_checkpoint.cj"
+      ],
+      "public_tests": [
+        "04-tensor-checkpoint/tests/public_test_01.cj",
+        "04-tensor-checkpoint/tests/public_test_02.cj",
+        "04-tensor-checkpoint/tests/public_test_03.cj",
+        "04-tensor-checkpoint/tests/public_test_04.cj"
+      ],
+      "api_checks": [
+        {
+          "source": "src/tensor_checkpoint.cj",
+          "pattern": "public struct TensorRecord"
+        },
+        {
+          "source": "src/tensor_checkpoint.cj",
+          "pattern": "public struct CheckpointView"
+        },
+        {
+          "source": "src/tensor_checkpoint.cj",
+          "pattern": "public class TensorCheckpointStore"
+        },
+        {
+          "source": "src/tensor_checkpoint.cj",
+          "pattern": "public func restore"
+        }
+      ]
+    }
+  ]
+}

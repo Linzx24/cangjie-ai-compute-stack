@@ -12,3 +12,4 @@
 ## 当前可用
 
 - [benchmark](benchmark)：仓颉能力测试题、标准答案和本地自动判分器。
+- [v25 复杂公开 Benchmark](benchmark/v25-suite)：4 道 CPU 任务、16 个公开测试、完整性校验与校准脚本。
